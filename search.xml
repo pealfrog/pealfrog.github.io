@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2019%2F10%2F03%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[$\texttt{I AK IOI}$ 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111点击显/隐内容 123456789101112131415161718192021222324252627282930#include&lt;bits/stdc++.h&gt;using namespace std;int n,t1=0,t2=0,a=0,b=0;int main()&#123; scanf("%d",&amp;n); for(int k=1;k&lt;=n;k++) &#123; scanf("%d",&amp;t2); if(t2&gt;t1) a+=1; else b=(a&gt;b)?a:b,a=0; t1=t2; &#125; return printf("%d\n",b+1),0;&#125;#include&lt;bits/stdc++.h&gt;using namespace std;int n,t1=0,t2=0,a=0,b=0;int main()&#123; scanf("%d",&amp;n); for(int k=1;k&lt;=n;k++) &#123; scanf("%d",&amp;t2); if(t2&gt;t1) a+=1; else b=(a&gt;b)?a:b,a=0; t1=t2; &#125; return printf("%d\n",b+1),0;&#125;]]></content>
+    <content type="text"><![CDATA[$\texttt{x义x AK IOI}$ 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111点击显/隐内容 123456789101112131415161718192021222324252627282930#include&lt;bits/stdc++.h&gt;using namespace std;int n,t1=0,t2=0,a=0,b=0;int main()&#123; scanf("%d",&amp;n); for(int k=1;k&lt;=n;k++) &#123; scanf("%d",&amp;t2); if(t2&gt;t1) a+=1; else b=(a&gt;b)?a:b,a=0; t1=t2; &#125; return printf("%d\n",b+1),0;&#125;#include&lt;bits/stdc++.h&gt;using namespace std;int n,t1=0,t2=0,a=0,b=0;int main()&#123; scanf("%d",&amp;n); for(int k=1;k&lt;=n;k++) &#123; scanf("%d",&amp;t2); if(t2&gt;t1) a+=1; else b=(a&gt;b)?a:b,a=0; t1=t2; &#125; return printf("%d\n",b+1),0;&#125;]]></content>
       <tags>
         <tag>其他</tag>
       </tags>

@@ -96,14 +96,18 @@
 
 
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="frac">
+  <meta name="description" content="直接上代码">
+<meta name="keywords" content="模板">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分数模板">
 <meta property="og:url" content="http://xtwnirui.github.io/2019/10/05/frac/index.html">
 <meta property="og:site_name" content="小跳蛙 的博客">
+<meta property="og:description" content="直接上代码">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-05T02:38:39.198Z">
+<meta property="og:updated_time" content="2019-10-05T03:19:23.897Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="frac">
+<meta name="twitter:title" content="分数模板">
+<meta name="twitter:description" content="直接上代码">
 
 
 
@@ -122,7 +126,7 @@
   };
 </script>
 
-  <title>frac | 小跳蛙 的博客</title>
+  <title>分数模板 | 小跳蛙 的博客</title>
   
 
 
@@ -371,7 +375,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">frac
+          <h1 class="post-title" itemprop="name headline">分数模板
 
               
             
@@ -397,9 +401,13 @@
                 
               
 
-              <time title="创建时间：2019-10-05 10:38:39" itemprop="dateCreated datePublished" datetime="2019-10-05T10:38:39+08:00">2019-10-05</time>
+              <time title="创建时间：2019-10-05 10:38:39 / 修改时间：11:19:23" itemprop="dateCreated datePublished" datetime="2019-10-05T10:38:39+08:00">2019-10-05</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -432,7 +440,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">5.9k</span>
               
 
               
@@ -446,7 +454,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -465,7 +473,11 @@
       
 
       
-        
+        <p>直接上代码<br><a id="more"></a><br><div><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123;<span class="keyword">return</span> b==<span class="number">0</span>||a==<span class="number">0</span>?a+b:gcd(b,a%b);&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">frac</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,y;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> frac <span class="title">yue</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> (frac)&#123;x/gcd(x,y),y/gcd(x,y)&#125;;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> frac <span class="title">dao</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> (frac)&#123;y,x&#125;;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>&#123;<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y);&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">()</span> </span>&#123;<span class="built_in">printf</span>(<span class="string">"%d/%d\n"</span>,x,y);&#125;</span><br><span class="line">	<span class="keyword">inline</span> <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(frac a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> x*a.y&lt;y*a.x;&#125;</span><br><span class="line">	<span class="keyword">inline</span> <span class="keyword">bool</span> <span class="keyword">operator</span>==(frac a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> x*a.y==y*a.x;&#125;</span><br><span class="line">	<span class="keyword">inline</span> <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;=(frac a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> *<span class="keyword">this</span>&lt;a||*<span class="keyword">this</span>==a;&#125;</span><br><span class="line">	<span class="keyword">inline</span> <span class="keyword">bool</span> <span class="keyword">operator</span>&gt;(frac a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> !(*<span class="keyword">this</span>&lt;=a);&#125;</span><br><span class="line">	<span class="keyword">inline</span> <span class="keyword">bool</span> <span class="keyword">operator</span>&gt;=(frac a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> !(*<span class="keyword">this</span>&lt;a);&#125;</span><br><span class="line">	<span class="keyword">inline</span> <span class="keyword">bool</span> <span class="keyword">operator</span>!=(frac a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> !(*<span class="keyword">this</span>==a);&#125;</span><br><span class="line">	<span class="keyword">inline</span> frac <span class="keyword">operator</span>+(frac a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> (frac)&#123;x*a.y+y*a.x,y*a.y&#125;.yue();&#125;</span><br><span class="line">	<span class="keyword">inline</span> frac <span class="keyword">operator</span>-(frac a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> (frac)&#123;x*a.y-y*a.x,y*a.y&#125;.yue();&#125;</span><br><span class="line">	<span class="keyword">inline</span> frac <span class="keyword">operator</span>*(frac a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> (frac)&#123;x*a.x,y*a.y&#125;.yue();&#125;</span><br><span class="line">	<span class="keyword">inline</span> frac <span class="keyword">operator</span>/(frac a) <span class="keyword">const</span> &#123;<span class="keyword">return</span> *<span class="keyword">this</span>*a.dao();&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div></p>
+
       
     </div>
 
@@ -485,6 +497,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/模板/" rel="tag"><i class="fa fa-tag"></i> 模板</a>
+          
+        </div>
       
 
       
@@ -570,7 +588,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -595,7 +613,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -755,7 +777,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">26 分钟</span>
+    <span title="站点阅读时长">25 分钟</span>
   
 </div>
 

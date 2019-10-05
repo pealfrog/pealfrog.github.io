@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="直接上代码点击显/隐内容 12345678typedef long long ll;typedef long double lb;const lb dx=1e-8;inline ll multi(ll x,ll y,ll mod)&amp;#123;	ll tmp=(x*y-(ll)((lb)x/mod*y+dx)*mod);	return tmp&amp;lt;0?tmp+mod:tmp;&amp;#125;">
+  <meta name="description" content="直接上代码">
+<meta name="keywords" content="模板">
 <meta property="og:type" content="article">
 <meta property="og:title" content="光速乘">
 <meta property="og:url" content="http://xtwnirui.github.io/2019/10/05/times/index.html">
 <meta property="og:site_name" content="小跳蛙 的博客">
-<meta property="og:description" content="直接上代码点击显/隐内容 12345678typedef long long ll;typedef long double lb;const lb dx=1e-8;inline ll multi(ll x,ll y,ll mod)&amp;#123;	ll tmp=(x*y-(ll)((lb)x/mod*y+dx)*mod);	return tmp&amp;lt;0?tmp+mod:tmp;&amp;#125;">
+<meta property="og:description" content="直接上代码">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-05T03:05:27.608Z">
+<meta property="og:updated_time" content="2019-10-05T03:22:02.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="光速乘">
-<meta name="twitter:description" content="直接上代码点击显/隐内容 12345678typedef long long ll;typedef long double lb;const lb dx=1e-8;inline ll multi(ll x,ll y,ll mod)&amp;#123;	ll tmp=(x*y-(ll)((lb)x/mod*y+dx)*mod);	return tmp&amp;lt;0?tmp+mod:tmp;&amp;#125;">
+<meta name="twitter:description" content="直接上代码">
 
 
 
@@ -400,7 +401,7 @@
                 
               
 
-              <time title="创建时间：2019-10-05 10:38:46 / 修改时间：11:05:27" itemprop="dateCreated datePublished" datetime="2019-10-05T10:38:46+08:00">2019-10-05</time>
+              <time title="创建时间：2019-10-05 10:38:46 / 修改时间：11:22:02" itemprop="dateCreated datePublished" datetime="2019-10-05T10:38:46+08:00">2019-10-05</time>
             
 
             
@@ -439,7 +440,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.4k</span>
+                <span title="本文字数">1.9k</span>
               
 
               
@@ -453,7 +454,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -472,11 +473,46 @@
       
 
       
-        <p>直接上代码<br><div><div class="fold_hider"><div class="close hider_title">点击显/隐内容</div></div><div class="fold">
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">double</span> lb;</span><br><span class="line"><span class="keyword">const</span> lb dx=<span class="number">1e-8</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">multi</span><span class="params">(ll x,ll y,ll mod)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll tmp=(x*y-(ll)((lb)x/mod*y+dx)*mod);</span><br><span class="line">	<span class="keyword">return</span> tmp&lt;<span class="number">0</span>?tmp+mod:tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</div></div></p>
-
+        <script src="/js/crypto-js.js"></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script>
+<div id="enc_content" style="display:none">U2FsdGVkX1/Om5h6pKG/mAYoP398hAbUrR7vWOg7Gd/9QODqJp81eM39w84Yr8MbuQzKHSCWGDkmX95VZoBCbV9VDmGDm6qJzsr4zlUCLOq3uRXWZVm7Yk5Ly+hZseipwtaYT0ITaaw7MKZ5CoFjX4YdmBDCAoT/nN74ZbYWB5+QgJsHQBXTq0z9xVf4pzJ/zzAKGPV9HpnGI13+UypwiYBtFDqikwCf8hbi+XOFlgXOYutLmlijDh8d/f5pnQF9ACChiPmhBnCouY/QTA2SSQ==</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
       
     </div>
 
@@ -497,6 +533,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/模板/" rel="tag"><i class="fa fa-tag"></i> 模板</a>
+          
+        </div>
+      
 
       
       
@@ -506,8 +548,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/05/frac/" rel="next" title="frac">
-                <i class="fa fa-chevron-left"></i> frac
+              <a href="/2019/10/05/frac/" rel="next" title="分数模板">
+                <i class="fa fa-chevron-left"></i> 分数模板
               </a>
             
           </div>
@@ -516,8 +558,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/05/point/" rel="prev" title="point">
-                point <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/05/fhq-tree/" rel="prev" title="fhq_tree模板">
+                fhq_tree模板 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -581,7 +623,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -606,7 +648,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -766,7 +812,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">26 分钟</span>
+    <span title="站点阅读时长">25 分钟</span>
   
 </div>
 

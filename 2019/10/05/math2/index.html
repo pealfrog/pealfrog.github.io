@@ -96,18 +96,21 @@
 
 
 
-  <meta name="description" content="直接上代码">
-<meta name="keywords" content="模板">
+  <meta name="description" content="这里有一道毒瘤数学题">
+<meta name="keywords" content="数学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="光速乘">
-<meta property="og:url" content="http://xtwnirui.github.io/2019/10/05/times/index.html">
+<meta property="og:title" content="数学题1">
+<meta property="og:url" content="http://xtwnirui.github.io/2019/10/05/math2/index.html">
 <meta property="og:site_name" content="小跳蛙 的博客">
-<meta property="og:description" content="直接上代码">
+<meta property="og:description" content="这里有一道毒瘤数学题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-05T03:34:54.508Z">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/egxwkz8u.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/rl8550m4.png">
+<meta property="og:updated_time" content="2019-10-05T03:40:39.473Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="光速乘">
-<meta name="twitter:description" content="直接上代码">
+<meta name="twitter:title" content="数学题1">
+<meta name="twitter:description" content="这里有一道毒瘤数学题">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/egxwkz8u.png">
 
 
 
@@ -116,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://xtwnirui.github.io/2019/10/05/times/">
+  <link rel="canonical" href="http://xtwnirui.github.io/2019/10/05/math2/">
 
 
 
@@ -126,7 +129,7 @@
   };
 </script>
 
-  <title>光速乘 | 小跳蛙 的博客</title>
+  <title>数学题1 | 小跳蛙 的博客</title>
   
 
 
@@ -358,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xtwnirui.github.io/2019/10/05/times/">
+    <link itemprop="mainEntityOfPage" href="http://xtwnirui.github.io/2019/10/05/math2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="leap-frog">
@@ -375,7 +378,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">光速乘
+          <h1 class="post-title" itemprop="name headline">数学题1
 
               
             
@@ -401,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-10-05 10:38:46 / 修改时间：11:34:54" itemprop="dateCreated datePublished" datetime="2019-10-05T10:38:46+08:00">2019-10-05</time>
+              <time title="创建时间：2019-10-05 11:36:29 / 修改时间：11:40:39" itemprop="dateCreated datePublished" datetime="2019-10-05T11:36:29+08:00">2019-10-05</time>
             
 
             
@@ -473,46 +476,12 @@
       
 
       
-        <script src="/js/crypto-js.js"></script>
-<script>
-function doDecrypt (pwd, onError) {
-	console.log('in doDecrypt');
-	const txt = document.getElementById('enc_content').innerHTML;
-	let plantext;
-	try {
-		const bytes = CryptoJS.AES.decrypt(txt, pwd);
-		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {
-			onError(err);
-		}
-		return;
-	}
-	document.getElementById('enc_content').innerHTML = plaintext;
-	document.getElementById('enc_content').style.display = 'block';
-	document.getElementById('enc_passwd').style.display = 'none';
-	if(typeof MathJax !== 'undefined') {
-		MathJax.Hub.Queue(
-			['resetEquationNumbers', MathJax.InputJax.TeX],
-			['PreProcess', MathJax.Hub],
-			['Reprocess', MathJax.Hub]
-		);
-	}
-}
-</script>
-<div id="enc_content" style="display:none">U2FsdGVkX19ww1n7SEnxBJnWvML8pdN+cYLp+LMQI2kndk731y3gVk0NXTRp5LimY3tbvTNIKAqAQyjaZNqI/iFFncJN7HOuXOqOT0hCLjJ/ZXsDs+JRkmrResOpQ3JVdYKpwy9Bip+ah2sntkqbigDLy7RNkD2DJTeGdgmifySDAxlu170/Ij7loQDP33j8jQzBT0Tt7nxQHYEjFIx6gpI0ELjhH0uXgw2zGlX3I8VR29gFtM3VHEbpGMeP+cQ8OKNha7Ab9sXT6J0ApJG03w==</div>
-<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
-</div>
+        <p>这里有一道毒瘤数学题<br><a id="more"></a></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/egxwkz8u.png" alt="404啦"><br>已知：$D$是$BC$的中点，$\angle ADB=60^\circ$，$2\angle ACB=\angle ABC$<br>求证：$\angle CAB=90^\circ$  </p>
+<h2 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h2><ol>
+<li><a href="http://iwo.im/?q=%E5%88%9D%E4%B8%AD%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95" target="_blank" rel="noopener">初中平面几何</a><h2 id="P-S"><a href="#P-S" class="headerlink" title="P.S."></a>P.S.</h2>$\color{red}{\texttt{我的辅助线就不用虚线了}}$<br>$\color{red}{\texttt{不要小看这道题！！！}}$  <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><img src="https://cdn.luogu.com.cn/upload/image_hosting/rl8550m4.png" alt="404啦"><br><strong>证：</strong><br>把$\triangle ADB$沿$AD$对折得到$\triangle AED$，连接$EC，ED$<br>设$\angle ACB=\alpha$，则$\angle ABC=2\alpha$<br>$\because \angle ADB=90^\circ,\triangle AED \cong \triangle ABD$<br>$\therefore \angle ADE=\angle ADB=60^\circ$<br>$\therefore \angle EDC=180^\circ-\angle ADB-\angle ADE=60^\circ$<br>$\because DE=DB，D$是$BC$的中点<br>$\therefore ED=DB=DC$<br>$\therefore \triangle ECD$是正$\triangle$<br>$\therefore \angle DCE=\angle DEC=60^\circ$<br>$\therefore \angle ECA=60-\alpha$<br>$\because \triangle AED \cong \triangle ABD$<br>$\therefore \angle AED=\angle ABD=2\alpha$<br>$\therefore \angle EAC=180^\circ-\angle ECA-\angle CED-\angle DEA$<br>$\qquad\qquad\;=180^\circ-(60^\circ-\alpha)-60^\circ-2\alpha=60^\circ-\alpha$<br>$\therefore \angle ECA=\angle EAC$<br>$\therefore EC=EA$<br>$\therefore AB=EA=EC=CD=DB$<br>$\therefore \triangle ADB$是正$\triangle$<br>$\therefore \angle ABD=60^\circ$<br>$\because \angle ABD=2\alpha$<br>$\therefore \alpha=30^\circ$<br>$\therefore \alpha=180^\circ-\angle ACB-\angle ABC$<br>$\qquad=180^\circ-30^\circ-60^\circ=90^\circ$  </li>
+</ol>
+
       
     </div>
 
@@ -535,7 +504,7 @@ doDecrypt(passwd, onError);
       
         <div class="post-tags">
           
-            <a href="/tags/模板/" rel="tag"><i class="fa fa-tag"></i> 模板</a>
+            <a href="/tags/数学/" rel="tag"><i class="fa fa-tag"></i> 数学</a>
           
         </div>
       
@@ -548,8 +517,8 @@ doDecrypt(passwd, onError);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/05/frac/" rel="next" title="分数模板">
-                <i class="fa fa-chevron-left"></i> 分数模板
+              <a href="/2019/10/05/lisnahua/" rel="next" title="离散化">
+                <i class="fa fa-chevron-left"></i> 离散化
               </a>
             
           </div>
@@ -558,8 +527,8 @@ doDecrypt(passwd, onError);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/05/fhq-tree/" rel="prev" title="fhq_tree模板">
-                fhq_tree模板 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/05/math1/" rel="prev" title="数学题2">
+                数学题2 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -605,8 +574,17 @@ doDecrypt(passwd, onError);
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -780,6 +758,23 @@ doDecrypt(passwd, onError);
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识"><span class="nav-number">2.</span> <span class="nav-text">知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P-S"><span class="nav-number">3.</span> <span class="nav-text">P.S.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">4.</span> <span class="nav-text">题解</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

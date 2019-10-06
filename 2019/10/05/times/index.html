@@ -24,6 +24,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
 
 
 
@@ -500,7 +507,7 @@ function doDecrypt (pwd, onError) {
 	}
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX19ww1n7SEnxBJnWvML8pdN+cYLp+LMQI2kndk731y3gVk0NXTRp5LimY3tbvTNIKAqAQyjaZNqI/iFFncJN7HOuXOqOT0hCLjJ/ZXsDs+JRkmrResOpQ3JVdYKpwy9Bip+ah2sntkqbigDLy7RNkD2DJTeGdgmifySDAxlu170/Ij7loQDP33j8jQzBT0Tt7nxQHYEjFIx6gpI0ELjhH0uXgw2zGlX3I8VR29gFtM3VHEbpGMeP+cQ8OKNha7Ab9sXT6J0ApJG03w==</div>
+<div id="enc_content" style="display:none">U2FsdGVkX19TIhHnMrHKsL2aJuvpvqNC2c4IpwKElA31fC0ax1JV7+aYDbfhJR6rzK+OkGp/zgvae+kgcsKFDsP5BfYf9QWiEyYjMd3xmib/mNUbym/7OkPsE4hGlsn0XhgcMqT1YD0BzLo37kAPrqdIOEpnmcd2rQeM1Qp1xrcnUDOCc/Qx4HEbmHULhdZzPdpkfwAVu+hrrSxJukM7AlPEyOV+gp7wgH1O90S+z0pQ1QrCuj0Nbn0ayPq73NwaYxAjBaU3nBtrRGZCs8/b6w==</div>
 <div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
@@ -623,7 +630,7 @@ doDecrypt(passwd, onError);
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

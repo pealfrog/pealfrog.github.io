@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="P1485火枪打怪（题解）Link.点我 PS.此题第一眼就可以看出是二分答案我看了标签QwQ Solution.最难的是二分的$\texttt{check}$函数如何写。首先因为子弹的威力是定值，所以每一个子弹的溅射范围是一样的，事先算出溅射范围。$\texttt{p-(i-j)}\times\texttt{(i-j)}=\texttt{p-i}^\texttt{2}+\texttt{2}\ti">
+  <meta name="description" content="这里有一篇题解。">
 <meta name="keywords" content="二分答案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P1485">
 <meta property="og:url" content="http://xtwnirui.github.io/2019/10/15/P1485/index.html">
 <meta property="og:site_name" content="小跳蛙 的博客">
-<meta property="og:description" content="P1485火枪打怪（题解）Link.点我 PS.此题第一眼就可以看出是二分答案我看了标签QwQ Solution.最难的是二分的$\texttt{check}$函数如何写。首先因为子弹的威力是定值，所以每一个子弹的溅射范围是一样的，事先算出溅射范围。$\texttt{p-(i-j)}\times\texttt{(i-j)}=\texttt{p-i}^\texttt{2}+\texttt{2}\ti">
+<meta property="og:description" content="这里有一篇题解。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-15T03:35:31.478Z">
+<meta property="og:updated_time" content="2019-10-20T07:04:03.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="P1485">
-<meta name="twitter:description" content="P1485火枪打怪（题解）Link.点我 PS.此题第一眼就可以看出是二分答案我看了标签QwQ Solution.最难的是二分的$\texttt{check}$函数如何写。首先因为子弹的威力是定值，所以每一个子弹的溅射范围是一样的，事先算出溅射范围。$\texttt{p-(i-j)}\times\texttt{(i-j)}=\texttt{p-i}^\texttt{2}+\texttt{2}\ti">
+<meta name="twitter:description" content="这里有一篇题解。">
 
 
 
@@ -409,12 +409,24 @@
                 
               
 
-              <time title="创建时间：2019-10-15 11:22:24 / 修改时间：11:35:31" itemprop="dateCreated datePublished" datetime="2019-10-15T11:22:24+08:00">2019-10-15</time>
+              <time title="创建时间：2019-10-15 11:22:24" itemprop="dateCreated datePublished" datetime="2019-10-15T11:22:24+08:00">2019-10-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-20 15:04:03" itemprop="dateModified" datetime="2019-10-20T15:04:03+08:00">2019-10-20</time>
               
             
           </span>
@@ -448,7 +460,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">6.7k</span>
+                <span title="本文字数">6.8k</span>
               
 
               
@@ -481,7 +493,8 @@
       
 
       
-        <h1 id="P1485火枪打怪（题解）"><a href="#P1485火枪打怪（题解）" class="headerlink" title="P1485火枪打怪（题解）"></a>P1485火枪打怪（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P1485" target="_blank" rel="noopener">点我</a></p>
+        <p>这里有一篇题解。<br><a id="more"></a></p>
+<h1 id="P1485火枪打怪（题解）"><a href="#P1485火枪打怪（题解）" class="headerlink" title="P1485火枪打怪（题解）"></a>P1485火枪打怪（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P1485" target="_blank" rel="noopener">点我</a></p>
 <h2 id="PS"><a href="#PS" class="headerlink" title="PS."></a>PS.</h2><p><strong>此题第一眼就可以看出是二分答案</strong><br><del>我看了标签QwQ</del></p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution."></a>Solution.</h2><p>最难的是二分的$\texttt{check}$函数如何写。<br>首先因为子弹的威力是定值，所以每一个子弹的溅射范围是一样的，事先算出溅射范围。<br>$\texttt{p-(i-j)}\times\texttt{(i-j)}=\texttt{p-i}^\texttt{2}+\texttt{2}\times\texttt{i}\times\texttt{j+j}^\texttt{2}$<br>这个式子中，$\texttt{i}^\texttt{2}$、$\texttt{2}\times\texttt{i}\times\texttt{j}$、$\texttt{j}^\texttt{2}$ 都是可以维护的。<br>于是我们维护$\texttt{i}^\texttt{2}$之和，$\texttt{2}\times\texttt{i}$之和，$\texttt{1}$之和。<br>在加入时可以临时乘上$\texttt{j}$的次方次幂。</p>
 <h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding."></a>Coding.</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,k,b[<span class="number">500005</span>];</span><br><span class="line">ll a[<span class="number">500005</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">check</span><span class="params">(ll p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll _2=<span class="number">0</span>,_1=<span class="number">0</span>,_0=<span class="number">0</span>,s=<span class="built_in">sqrt</span>(p)+<span class="number">1</span>;</span><br><span class="line">	<span class="comment">//s表示溅射范围，_2，_1，_0分别表示 i*i ， 2*i ， 1 。</span></span><br><span class="line">	<span class="keyword">int</span> tot=<span class="number">0</span>;</span><br><span class="line">	<span class="comment">//tot表示子弹数。</span></span><br><span class="line">	<span class="built_in">memset</span>(b,<span class="number">0</span>,<span class="keyword">sizeof</span>(b));</span><br><span class="line">	<span class="comment">//b表示在这里有无发过子弹。</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(i+s&lt;=n&amp;&amp;b[i+s]) _2-=(i+s)*(i+s)*b[i+s],_1-=(i+s)*b[i+s],_0-=b[i+s];</span><br><span class="line">		<span class="comment">//溅射结束，去掉影响。</span></span><br><span class="line">		ll gone=_0*p-_0*i*i+<span class="number">2</span>*_1*i-_2;</span><br><span class="line">		<span class="comment">//gong表示这个怪物由于之前的溅射扣的血量。</span></span><br><span class="line">		<span class="keyword">if</span>(a[i]&gt;=gone) b[i]=(a[i]-gone)/p+<span class="number">1</span>,tot+=b[i],_0+=b[i],_1+=b[i]*i,_2+=b[i]*i*i;</span><br><span class="line">		<span class="comment">//如果这个怪物没被打死，还需要在开枪。</span></span><br><span class="line">		<span class="keyword">if</span>(tot&gt;k) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		<span class="comment">//k枪已经打不死全部怪物了。</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>,&amp;n,&amp;k);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,a+i);</span><br><span class="line">	ll l=<span class="number">1</span>,r=<span class="number">1e13</span>,ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(l&lt;=r)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>(check(mid)) l=mid+<span class="number">1</span>;<span class="keyword">else</span> r=mid<span class="number">-1</span>,ans=mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//二分板子。</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -847,7 +860,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">35k</span>
+    <span title="站点总字数">36k</span>
   
 
   
@@ -856,7 +869,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">32 分钟</span>
+    <span title="站点阅读时长">33 分钟</span>
   
 </div>
 

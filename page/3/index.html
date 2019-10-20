@@ -405,12 +405,24 @@
                 
               
 
-              <time title="创建时间：2019-10-15 10:57:18 / 修改时间：11:17:48" itemprop="dateCreated datePublished" datetime="2019-10-15T10:57:18+08:00">2019-10-15</time>
+              <time title="创建时间：2019-10-15 10:57:18" itemprop="dateCreated datePublished" datetime="2019-10-15T10:57:18+08:00">2019-10-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-20 15:03:51" itemprop="dateModified" datetime="2019-10-20T15:03:51+08:00">2019-10-20</time>
               
             
           </span>
@@ -471,19 +483,19 @@
 
       
         
+          <p>这里有一篇题解。<br>
+          <!--noindex-->
           
-            <h1 id="P4912帕秋莉的魔法（题解）"><a href="#P4912帕秋莉的魔法（题解）" class="headerlink" title="P4912帕秋莉的魔法（题解）"></a>P4912帕秋莉的魔法（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P4912" target="_blank" rel="noopener">点我</a></p>
-<h2 id="PS"><a href="#PS" class="headerlink" title="PS."></a>PS.</h2><p>楼上的题解解释较少，希望这篇题解能帮助到你</p>
-<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem."></a>Problem.</h2><p>有$\texttt{n}$个物品，每个物品有一个重量和一个价值，只能从前往后取物品。<br>取了前面的物品之后会对下一个物品有一定的影响，使后一个物品的价值加上一个值。<br>现在，你需要取重量和恰好为$\texttt{n}$的一些物品，使它们的价值和最大。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution."></a>Solution.</h2><p>首先，每一个物品有两个属性，第一时间想到的应该是背包。<br>所以根据背包常用套路，设$\texttt{dp[x][y]}$表示前$\texttt{x}$个物品中取出重量恰为$\texttt{y}$的最大价值和。<br>所以$\texttt{dp[x][y+a[x]]=max(dp[k][y]+b[x]+w[k][x])}$。</p>
-<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention."></a>Attention.</h2><p>这道题如果这样写的话不会得到全分，<del>具体得分未亲测</del>。<br>因为这题中$\texttt{w}$可能为负数，如果单纯这样写会$\texttt{RE}$或$\texttt{WA}$。<br>所以我们可以给第二位加一个偏移量，相当于程序中的$\texttt{dp[i][j]}$表示我们的$\texttt{dp[i][j-2500]}$。<br>这样就能得全分了QwQ</p>
-<h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding."></a>Coding.</h2><p><del>压行码风勿喷QwQ</del><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">55</span>,V=<span class="number">2500</span>;	<span class="comment">//V：注意点重的偏移量</span></span><br><span class="line"><span class="keyword">int</span> n,m,ans,a[N],b[N],w[N][N],dp[N][(V&lt;&lt;<span class="number">1</span>)+<span class="number">5</span>];	<span class="comment">//此处解释略</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);	<span class="comment">//读入</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,a+i,b+i);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;w[i][j]);</span><br><span class="line">	<span class="built_in">memset</span>(dp,~<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(dp)),dp[<span class="number">0</span>][V]=<span class="number">0</span>;		<span class="comment">//初始化为最小值，方便以后处理</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++) <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=n;j++) <span class="keyword">for</span>(<span class="keyword">int</span> k=(V&lt;&lt;<span class="number">1</span>);k&gt;=<span class="number">0</span>;k--) <span class="keyword">if</span>(dp[i][k]!=dp[<span class="number">0</span>][<span class="number">0</span>]) dp[j][k+a[j]]=max(dp[j][k+a[j]],dp[i][k]+b[j]+w[i][j]);	<span class="comment">//最关键的一行语句，动态规划转移</span></span><br><span class="line">	ans=dp[<span class="number">0</span>][<span class="number">0</span>];<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) ans=max(ans,dp[i][m+V]);		<span class="comment">//从所有恰好为m条语句中找出答案</span></span><br><span class="line">	<span class="keyword">return</span> (ans==dp[<span class="number">0</span>][<span class="number">0</span>]?<span class="built_in">puts</span>(<span class="string">"-1"</span>):<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans)),<span class="number">0</span>;	<span class="comment">//完美地一行输出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>拒绝抄袭代码，营造良好洛谷</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/15/P4912/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
 
@@ -580,12 +592,24 @@
                 
               
 
-              <time title="创建时间：2019-10-15 10:56:07 / 修改时间：11:17:37" itemprop="dateCreated datePublished" datetime="2019-10-15T10:56:07+08:00">2019-10-15</time>
+              <time title="创建时间：2019-10-15 10:56:07" itemprop="dateCreated datePublished" datetime="2019-10-15T10:56:07+08:00">2019-10-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-20 15:03:35" itemprop="dateModified" datetime="2019-10-20T15:03:35+08:00">2019-10-20</time>
               
             
           </span>
@@ -646,16 +670,19 @@
 
       
         
+          <p>这里有一篇题解。<br>
+          <!--noindex-->
           
-            <h1 id="P4703偷上网（题解）"><a href="#P4703偷上网（题解）" class="headerlink" title="P4703偷上网（题解）"></a>P4703偷上网（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P4703" target="_blank" rel="noopener">点我</a></p>
-<h2 id="PS"><a href="#PS" class="headerlink" title="PS."></a>PS.</h2><p><del>随机大法好用</del><br>我做这道题，刚开始忘了可能有无解情况，$\texttt{T}$了$\texttt{4}$个点，<del>说明无解的就四个点</del><br>然后，又过了一段时间，终于把代码构对了后，发现随机种子也很重要。<br>刚开始，我用$\texttt{time(0)}$来当随机种子，$\texttt{Wa}$了一个点。<br>后来用其他的一些随机种子，结果都$\texttt{Wa}$了那一个点。<br>一气之下，我翻了一下题解，抄了楼上的$\texttt{19260817}$作为随机种字，莫名其妙就对了。<br>我感到特别玄学</p>
-<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem."></a>Problem.</h2><p>就是给你$\texttt{n}$个圆，然后让你找出一个点，使它没被任何圆覆盖。<br>输出这个点的坐标，没有则输出$\texttt{GG}$。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution."></a>Solution.</h2><p><del>没什么好分析的</del><br>直接暴力随机这个点的坐标，然后判断这个点是否在圆内。<br>那么如何判断这个点是否在圆内呢？ <a href="https://www.luogu.org/problem/P1652" target="_blank" rel="noopener">不会的点我</a><br>具体详情请看代码。</p>
-<h3 id="Coding"><a href="#Coding" class="headerlink" title="Coding."></a>Coding.</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">15</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span>&#123;</span><span class="keyword">double</span> x,y;&#125;a[N];	<span class="comment">//点的结构体</span></span><br><span class="line"><span class="keyword">int</span> n,l,m=<span class="number">1e7</span>;	<span class="comment">//m表示随机次数</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> point <span class="title">Rand</span><span class="params">()</span>		<span class="comment">//生成平面上的随机一个点</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> x=rand(),y=rand();</span><br><span class="line">	<span class="keyword">while</span>(x&gt;l) x/=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">while</span>(y&gt;l) y/=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> (point)&#123;x,y&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">sqr</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;<span class="keyword">return</span> x*x;&#125;	<span class="comment">//平方函数</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">check</span><span class="params">(point b)</span>		<span class="comment">//判断这个点是否在一个圆里面</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="keyword">if</span>(sqr(b.x-a[i].x)+sqr(b.y-a[i].y)&lt;sqr(<span class="keyword">double</span>(l)/n))</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%.3lf %.3lf\n"</span>,b.x,b.y);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	srand(<span class="number">19260817</span>);	<span class="comment">//玄学的随机种字</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;l);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">"%lf%lf"</span>,&amp;a[i].x,&amp;a[i].y);</span><br><span class="line">	<span class="keyword">while</span>(check(Rand())&amp;&amp;m--);	<span class="comment">//不断随机点，判断</span></span><br><span class="line">	<span class="keyword">if</span>(m==<span class="number">-1</span>) <span class="built_in">puts</span>(<span class="string">"GG"</span>);	<span class="comment">//判断不可行解</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/15/P4703/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
 
@@ -752,12 +779,24 @@
                 
               
 
-              <time title="创建时间：2019-10-15 10:48:59 / 修改时间：11:17:58" itemprop="dateCreated datePublished" datetime="2019-10-15T10:48:59+08:00">2019-10-15</time>
+              <time title="创建时间：2019-10-15 10:48:59" itemprop="dateCreated datePublished" datetime="2019-10-15T10:48:59+08:00">2019-10-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-20 15:04:26" itemprop="dateModified" datetime="2019-10-20T15:04:26+08:00">2019-10-20</time>
               
             
           </span>
@@ -818,18 +857,19 @@
 
       
         
+          <p>这里有一篇题解。<br>
+          <!--noindex-->
           
-            <h1 id="P1762偶数（题解）"><a href="#P1762偶数（题解）" class="headerlink" title="P1762偶数（题解）"></a>P1762偶数（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P1762" target="_blank" rel="noopener">点我</a></p>
-<h2 id="PS"><a href="#PS" class="headerlink" title="PS."></a>PS.</h2><p>此题关于杨辉三角，所以应该是数论。<br>但是像我这种菜鸡，只能暴力打表出奇迹了。<br>然后突然发现，好像自己打出了最短的题解。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution."></a>Solution.</h2><p>首先，对于$\texttt{n}$比较小的数据可以打出一个表。<br>打表辅助程序如下，相当于$\texttt{O(n}^\texttt{2}\texttt{)}$暴力解决<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) ((x)&amp;(-(x)))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">15</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">2</span>][<span class="number">10005</span>],ans[<span class="number">10005</span>],tr[<span class="number">10005</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a)),tr[<span class="number">0</span>]=tr[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,tot=<span class="number">0</span>;i&lt;=N;i++,tot=<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		a[i&amp;<span class="number">1</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++) a[i&amp;<span class="number">1</span>][j]=a[<span class="number">1</span>-(i&amp;<span class="number">1</span>)][j]+a[<span class="number">1</span>-(i&amp;<span class="number">1</span>)][j<span class="number">-1</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++) a[i&amp;<span class="number">1</span>][j]&amp;=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++) tot+=<span class="number">1</span>-(a[i&amp;<span class="number">1</span>][j]&amp;<span class="number">1</span>);</span><br><span class="line">		tr[i]=tr[i/<span class="number">2</span>]+lowbit(i)/<span class="number">2</span>,ans[i]=tot;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++) <span class="built_in">printf</span>(<span class="string">"%c%c"</span>,a[i&amp;<span class="number">1</span>][j]?<span class="string">'*'</span>:<span class="string">'.'</span>,j==i?<span class="string">'\n'</span>:<span class="string">' '</span>);</span><br><span class="line"><span class="comment">//		printf("%d:%d\n",i+1,ans[i]);</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>打出来的表如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">*</span><br><span class="line">* *</span><br><span class="line">* . *</span><br><span class="line">* * * *</span><br><span class="line">* . . . *</span><br><span class="line">* * . . * *</span><br><span class="line">* . * . * . *</span><br><span class="line">* * * * * * * *</span><br><span class="line">* . . . . . . . *</span><br><span class="line">* * . . . . . . * *</span><br><span class="line">* . * . . . . . * . *</span><br><span class="line">* * * * . . . . * * * *</span><br><span class="line">* . . . * . . . * . . . *</span><br><span class="line">* * . . * * . . * * . . * *</span><br><span class="line">* . * . * . * . * . * . * . *</span><br><span class="line">* * * * * * * * * * * * * * * *</span><br></pre></td></tr></table></figure></p>
-<p>然后，发现它是一个分形图形，于是我们考虑用递归求解。<br>设我们当前要处理的三角形边长为$\texttt{n}$，答案为$\texttt{f(n)}$，那么</p>
-<script type="math/tex; mode=display">\texttt{f(n)}=\left\{\begin{aligned}\texttt{3}^\texttt{k}\qquad\qquad\quad\qquad\texttt{(n=2}^\texttt{k}\texttt{且k}\in\mathbb{N}\texttt{)}\\\texttt{f(2}^\texttt{k}\texttt{)+f(n-2}^\texttt{k}\texttt{)}\quad\texttt{(2}^\texttt{k}\texttt{<=n<=2}^\texttt{k+1}\texttt{且k}\in\mathbb{N}\texttt{)}\end{aligned}\right.</script><p>于是，这个$\texttt{f(n)}$可以用递归法加上快速幂求解。<br>当然也可以预处理出所有$\texttt{3}^\texttt{k}$。</p>
-<h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding."></a>Coding.</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll QY=<span class="number">1000003</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">lowbit</span><span class="params">(ll x)</span> </span>&#123;<span class="keyword">return</span> x&amp;(-x);&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">upbit</span><span class="params">(ll x)</span> </span>&#123;<span class="keyword">for</span>(ll i=<span class="number">1</span>;;i&lt;&lt;=<span class="number">1</span>) <span class="keyword">if</span>(i&gt;=x) <span class="keyword">return</span> i/<span class="number">2</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">qpow</span><span class="params">(ll a,ll q)</span> </span>&#123;ll ans=<span class="number">1</span>;<span class="keyword">for</span>(;q;q&gt;&gt;=<span class="number">1</span>,a=a*a%QY) <span class="keyword">if</span>(q&amp;<span class="number">1</span>) ans=ans*a%QY;<span class="keyword">return</span> ans;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">dfs</span><span class="params">(ll x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lowbit(x)==x) <span class="keyword">return</span> qpow(<span class="number">3</span>,(ll)(<span class="built_in">log</span>(x)/<span class="built_in">log</span>(<span class="number">2</span>)));</span><br><span class="line">	<span class="keyword">return</span> (qpow(<span class="number">3</span>,(ll)(<span class="built_in">log</span>(upbit(x))/<span class="built_in">log</span>(<span class="number">2</span>)))+<span class="number">2</span>*dfs(x-upbit(x))%QY)%QY;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll n,sum;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n),sum=n%<span class="number">2</span>?(n%QY)*((n+<span class="number">1</span>)/<span class="number">2</span>%QY)%QY:(n/<span class="number">2</span>%QY)*((n+<span class="number">1</span>)%QY)%QY;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,((sum-dfs(n))%QY+QY)%QY);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/15/P1762/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
 
@@ -926,12 +966,24 @@
                 
               
 
-              <time title="创建时间：2019-10-15 10:45:10 / 修改时间：11:18:01" itemprop="dateCreated datePublished" datetime="2019-10-15T10:45:10+08:00">2019-10-15</time>
+              <time title="创建时间：2019-10-15 10:45:10" itemprop="dateCreated datePublished" datetime="2019-10-15T10:45:10+08:00">2019-10-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-20 15:03:27" itemprop="dateModified" datetime="2019-10-20T15:03:27+08:00">2019-10-20</time>
               
             
           </span>
@@ -992,18 +1044,19 @@
 
       
         
+          <p>这里有一篇题解。<br>
+          <!--noindex-->
           
-            <h1 id="P2250二面体群（题解）"><a href="#P2250二面体群（题解）" class="headerlink" title="P2250二面体群（题解）"></a>P2250二面体群（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P2250" target="_blank" rel="noopener">点我</a></p>
-<h2 id="PS"><a href="#PS" class="headerlink" title="PS."></a>PS.</h2><p>我不知道这道题为什么会是灰的，通过数还这么少。<br>作为第三个$\texttt{A}$了这道题的人，来发一篇题解。<br>这道题读入调了我半天呢。</p>
-<h2 id="problem"><a href="#problem" class="headerlink" title="problem."></a>problem.</h2><p>首先，在一个平面直角坐标系中，有一个单位园，它上面均匀分布了$\texttt{n}$个点。<br>然后有两种操作，可以顺时针旋转$\frac{\texttt{2}\pi}{k}$弧度，也可以把它按照$\texttt{x}$轴对称。<br>求一堆操作的最短等价操作是什么。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution."></a>Solution.</h2><h3 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1."></a>Part 1.</h3><p>首先，操作二上下轴对称是对点的相对分布是五影响的。<br>所以，操作二与操作一是相对独立的，操作二只与操作一的旋转方向有关。<br>所以可以记录下来操作二的操作次数，然后在执行操作一的时候加入操作二的次数，记录下逆时针旋转了几个单位。<br>然后就记录下来了读入。</p>
-<h3 id="Part-2"><a href="#Part-2" class="headerlink" title="Part 2."></a>Part 2.</h3><p>从第一部分可以知道操作的总体显现情况，具体的说，就是$\texttt{t=}$有没有翻转，$\texttt{x=}$逆时针旋转了几个单位。<br>然后可以从$\texttt{t}$与$\texttt{x}$中推出答案，具体看代码。</p>
-<p><del>可能有一点玄乎，那么上代码吧</del></p>
-<h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding."></a>Coding.</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,x,t=<span class="number">1</span>,a=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">char</span> c;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span>	<span class="comment">//第一部分 读入</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d\n"</span>,&amp;n),c=getchar();	<span class="comment">//读入第一行的数以及第二行的第一个字符。</span></span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)	<span class="comment">//一直循环</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span>(c!=<span class="string">'\n'</span>&amp;&amp;c!=EOF&amp;&amp;c!=<span class="string">'r'</span>&amp;&amp;c!=<span class="string">'m'</span>) c=getchar();		<span class="comment">//这里有锅，见下一行</span></span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'\n'</span>||c==EOF) <span class="keyword">break</span>;		<span class="comment">//数据有锅，如果这里没有EOF的话亲测最后一个点会TLE。</span></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);		<span class="comment">//读入操作数据</span></span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'r'</span>) (a+=t*x%n)%=n;	<span class="comment">//旋转操作直接模拟，要加上翻转操作中的顺逆时针，这条语句相当于a=(a+t*x%n)%n;</span></span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'m'</span>) t=(x&amp;<span class="number">1</span>)?-t:t;	<span class="comment">//翻转操作，记录下来有多少次翻转（奇数是-1，偶数是1）</span></span><br><span class="line">		c=getchar();	<span class="comment">//继续读</span></span><br><span class="line">	&#125;</span><br><span class="line">	(a+=n)%=n;	<span class="comment">//防止a&lt;0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">out</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n+<span class="number">1</span>-a-t&lt;a) <span class="built_in">printf</span>(<span class="string">"m1 r%d "</span>,n-a),t=-t;	<span class="comment">//这个特判也卡了我半天QwQ，特判语句我试了半天</span></span><br><span class="line"><span class="comment">//	1-t表示先翻转（可能之后的翻转不需要，或者之后多出来一次翻转），n-a表示翻转之后顺时针旋转。然后t要取反</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a) <span class="built_in">printf</span>(<span class="string">"r%d "</span>,a);	<span class="comment">//如果a=0，就不需要输出了。</span></span><br><span class="line">	<span class="keyword">if</span>(t==<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"m1 "</span>);	<span class="comment">//如果还有一次</span></span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">""</span>);	<span class="comment">//个人强迫症</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> init(),out(),<span class="number">0</span>;	<span class="comment">//完美主程序结束</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/15/P2250/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
 
@@ -1100,12 +1153,24 @@
                 
               
 
-              <time title="创建时间：2019-10-15 10:41:14 / 修改时间：11:18:33" itemprop="dateCreated datePublished" datetime="2019-10-15T10:41:14+08:00">2019-10-15</time>
+              <time title="创建时间：2019-10-15 10:41:14" itemprop="dateCreated datePublished" datetime="2019-10-15T10:41:14+08:00">2019-10-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-20 15:03:41" itemprop="dateModified" datetime="2019-10-20T15:03:41+08:00">2019-10-20</time>
               
             
           </span>
@@ -1166,21 +1231,19 @@
 
       
         
+          <p>这里有一篇题解。<br>
+          <!--noindex-->
           
-            <h1 id="P4862猜数（题解）"><a href="#P4862猜数（题解）" class="headerlink" title="P4862猜数（题解）"></a>P4862猜数（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P4862" target="_blank" rel="noopener">点我</a></p>
-<h2 id="PS"><a href="#PS" class="headerlink" title="PS."></a>PS.</h2><p>讲一下个人对于这道题的心路历程吧。<br>这道题就是一道硬生生把两道题合并成一道的经典例子。<br>首先，看到这道题时，没有看到数据范围，然后这道题就被放置了很久。<br>后来才发现最后几个$\texttt{n}$特别大的测试数据点的$\texttt{a=2}$与$\texttt{b=1}$。<br>然后，即使$\texttt{a=2}$且$\texttt{b=1}$，我仍然不会做 <del>我就是菜</del><br>于是，我想骗一下$\texttt{70}$分的做法，然后想到了递推。<br>然后，过了很久，又想到去把$\texttt{a=2}$与$\texttt{b=1}$去带入递推式，打表找一下规律。<br>突然发现答案有关菲波那切数列，就做出来了。<br><strong><del>借此我想告诉大家，我也不知道为什么答案是这样的</del></strong></p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution."></a>Solution.</h2><h3 id="70-point"><a href="#70-point" class="headerlink" title="70 point"></a>70 point</h3><p>首先，引进一个<del>感性理解</del>定理：<br><strong>在m在S中并且S的元素数目不变的前提下，Iris选择的数m以及S的元素对答案是没有影响的。</strong><br>所以，我们可以设$\texttt{f(n)}$表示在$\texttt{[1,n]}$，问出答案的最优策略花费的金额。</p>
-<script type="math/tex; mode=display">\texttt{f(x)}=\left\{\begin{aligned}\texttt{0}\quad\texttt{(x==1)}\\\texttt{min\{max(f(i)+a,f(x-i)+b)\}}\quad\texttt{(x!=1)}\end{aligned}\right.</script><p>然鹅这个递推式的复杂度是$\texttt{O(n}^\texttt{2}\texttt{)}$，只能骗来$\texttt{70}$分。</p>
-<h3 id="30-point"><a href="#30-point" class="headerlink" title="30 point"></a>30 point</h3><p>但是，我们把$\texttt{a=2}$和$\texttt{b=1}$带入上式，然后打表找一下规律。<br>我打出了这个表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1 ans=0</span><br><span class="line">2 ans=2</span><br><span class="line">3 ans=3</span><br><span class="line">4 ans=4</span><br><span class="line">5 ans=4</span><br><span class="line">6 ans=5</span><br><span class="line">7 ans=5</span><br><span class="line">8 ans=5</span><br><span class="line">9 ans=6</span><br><span class="line">10 ans=6</span><br><span class="line">11 ans=6</span><br><span class="line">12 ans=6</span><br><span class="line">13 ans=6</span><br><span class="line">14 ans=7</span><br></pre></td></tr></table></figure></p>
-<p>经过整理后是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1-10	1</span><br><span class="line">2-22	2</span><br><span class="line">3-33	3</span><br><span class="line">4-54	5</span><br><span class="line">6-85	8</span><br><span class="line">9-13 6	13</span><br><span class="line">..</span><br><span class="line">..</span><br><span class="line">..</span><br></pre></td></tr></table></figure></p>
-<p>我们发现，最右端是斐波那契数列，然后再打一通表，就发现$\texttt{f(100)&gt;10}^\texttt{18}$。<br>所以复杂度是$\texttt{O(max(100,t))}$，能过。<br>至此，这道题终于做完了。</p>
-<h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding."></a>Coding.</h2><p>有SB特判，有注释版本<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;		//我爱用万能头</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2000</span>,M=<span class="number">100</span>;		<span class="comment">//N表示前7个点的范围，M表示后3个点的范围</span></span><br><span class="line"><span class="keyword">int</span> a,b,t;ll n,f[N+<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">work1</span><span class="params">()</span>		<span class="comment">//处理前7个点。</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(f,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(f)),f[<span class="number">1</span>]=<span class="number">0</span>;	<span class="comment">//要求最大值的最小值，初始值INF</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;i;j++)</span><br><span class="line">			f[i]=min(f[i],max(f[j]+a,f[i-j]+b));	<span class="comment">//由上面的递推式得到</span></span><br><span class="line">	<span class="keyword">while</span>(t--) <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n),<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,f[n]);	<span class="comment">//回答询问</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">work2</span><span class="params">()</span>		<span class="comment">//处理后3个点。</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	f[<span class="number">0</span>]=<span class="number">1</span>,f[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=M;i++) f[i]=f[i<span class="number">-1</span>]+f[i<span class="number">-2</span>];	<span class="comment">//预处理斐波那契数列</span></span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n);</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">1</span>) &#123;<span class="built_in">puts</span>(<span class="string">"0"</span>);<span class="keyword">continue</span>;&#125;	<span class="comment">//SB特判</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++) <span class="keyword">if</span>(n&lt;=f[i]) &#123;<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);<span class="keyword">break</span>;&#125;		<span class="comment">//打表找出的规律</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;a,&amp;b,&amp;t);</span><br><span class="line">	<span class="keyword">if</span>(a!=<span class="number">2</span>||b!=<span class="number">1</span>) work1();		<span class="comment">//处理前7个点</span></span><br><span class="line">	<span class="keyword">else</span> work2();	<span class="comment">//处理后3个点</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不用SB特判，无注释版本：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2000</span>,M=<span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> a,b,t;ll n,f[N+<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">work1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(f,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(f)),f[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;i;j++)</span><br><span class="line">			f[i]=min(f[i],max(f[j]+a,f[i-j]+b));</span><br><span class="line">	<span class="keyword">while</span>(t--) <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n),<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,f[n]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">work2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	f[<span class="number">0</span>]=<span class="number">1</span>,f[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=M;i++) f[i]=f[i<span class="number">-1</span>]+f[i<span class="number">-2</span>];</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=M;i++) <span class="keyword">if</span>(n&lt;=f[i]) &#123;<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);<span class="keyword">break</span>;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;a,&amp;b,&amp;t);</span><br><span class="line">	<span class="keyword">if</span>(a!=<span class="number">2</span>||b!=<span class="number">1</span>) work1();</span><br><span class="line">	<span class="keyword">else</span> work2();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/15/P4862/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
 
@@ -1679,7 +1742,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">35k</span>
+    <span title="站点总字数">36k</span>
   
 
   
@@ -1688,7 +1751,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">32 分钟</span>
+    <span title="站点阅读时长">33 分钟</span>
   
 </div>
 

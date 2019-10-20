@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="P4912帕秋莉的魔法（题解）Link.点我 PS.楼上的题解解释较少，希望这篇题解能帮助到你 Problem.有$\texttt{n}$个物品，每个物品有一个重量和一个价值，只能从前往后取物品。取了前面的物品之后会对下一个物品有一定的影响，使后一个物品的价值加上一个值。现在，你需要取重量和恰好为$\texttt{n}$的一些物品，使它们的价值和最大。 Solution.首先，每一个物品有两个属性">
+  <meta name="description" content="这里有一篇题解。">
 <meta name="keywords" content="动态规划,背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P4912帕秋莉的魔法（题解）">
 <meta property="og:url" content="http://xtwnirui.github.io/2019/10/15/P4912/index.html">
 <meta property="og:site_name" content="小跳蛙 的博客">
-<meta property="og:description" content="P4912帕秋莉的魔法（题解）Link.点我 PS.楼上的题解解释较少，希望这篇题解能帮助到你 Problem.有$\texttt{n}$个物品，每个物品有一个重量和一个价值，只能从前往后取物品。取了前面的物品之后会对下一个物品有一定的影响，使后一个物品的价值加上一个值。现在，你需要取重量和恰好为$\texttt{n}$的一些物品，使它们的价值和最大。 Solution.首先，每一个物品有两个属性">
+<meta property="og:description" content="这里有一篇题解。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-15T03:17:48.211Z">
+<meta property="og:updated_time" content="2019-10-20T07:03:51.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="P4912帕秋莉的魔法（题解）">
-<meta name="twitter:description" content="P4912帕秋莉的魔法（题解）Link.点我 PS.楼上的题解解释较少，希望这篇题解能帮助到你 Problem.有$\texttt{n}$个物品，每个物品有一个重量和一个价值，只能从前往后取物品。取了前面的物品之后会对下一个物品有一定的影响，使后一个物品的价值加上一个值。现在，你需要取重量和恰好为$\texttt{n}$的一些物品，使它们的价值和最大。 Solution.首先，每一个物品有两个属性">
+<meta name="twitter:description" content="这里有一篇题解。">
 
 
 
@@ -409,12 +409,24 @@
                 
               
 
-              <time title="创建时间：2019-10-15 10:57:18 / 修改时间：11:17:48" itemprop="dateCreated datePublished" datetime="2019-10-15T10:57:18+08:00">2019-10-15</time>
+              <time title="创建时间：2019-10-15 10:57:18" itemprop="dateCreated datePublished" datetime="2019-10-15T10:57:18+08:00">2019-10-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-20 15:03:51" itemprop="dateModified" datetime="2019-10-20T15:03:51+08:00">2019-10-20</time>
               
             
           </span>
@@ -481,7 +493,8 @@
       
 
       
-        <h1 id="P4912帕秋莉的魔法（题解）"><a href="#P4912帕秋莉的魔法（题解）" class="headerlink" title="P4912帕秋莉的魔法（题解）"></a>P4912帕秋莉的魔法（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P4912" target="_blank" rel="noopener">点我</a></p>
+        <p>这里有一篇题解。<br><a id="more"></a></p>
+<h1 id="P4912帕秋莉的魔法（题解）"><a href="#P4912帕秋莉的魔法（题解）" class="headerlink" title="P4912帕秋莉的魔法（题解）"></a>P4912帕秋莉的魔法（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P4912" target="_blank" rel="noopener">点我</a></p>
 <h2 id="PS"><a href="#PS" class="headerlink" title="PS."></a>PS.</h2><p>楼上的题解解释较少，希望这篇题解能帮助到你</p>
 <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem."></a>Problem.</h2><p>有$\texttt{n}$个物品，每个物品有一个重量和一个价值，只能从前往后取物品。<br>取了前面的物品之后会对下一个物品有一定的影响，使后一个物品的价值加上一个值。<br>现在，你需要取重量和恰好为$\texttt{n}$的一些物品，使它们的价值和最大。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution."></a>Solution.</h2><p>首先，每一个物品有两个属性，第一时间想到的应该是背包。<br>所以根据背包常用套路，设$\texttt{dp[x][y]}$表示前$\texttt{x}$个物品中取出重量恰为$\texttt{y}$的最大价值和。<br>所以$\texttt{dp[x][y+a[x]]=max(dp[k][y]+b[x]+w[k][x])}$。</p>
@@ -853,7 +866,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">35k</span>
+    <span title="站点总字数">36k</span>
   
 
   
@@ -862,7 +875,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">32 分钟</span>
+    <span title="站点阅读时长">33 分钟</span>
   
 </div>
 

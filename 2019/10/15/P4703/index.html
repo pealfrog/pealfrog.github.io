@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="P4703偷上网（题解）Link.点我 PS.随机大法好用我做这道题，刚开始忘了可能有无解情况，$\texttt{T}$了$\texttt{4}$个点，说明无解的就四个点然后，又过了一段时间，终于把代码构对了后，发现随机种子也很重要。刚开始，我用$\texttt{time(0)}$来当随机种子，$\texttt{Wa}$了一个点。后来用其他的一些随机种子，结果都$\texttt{Wa}$了那一个点">
+  <meta name="description" content="这里有一篇题解。">
 <meta name="keywords" content="计算几何,随机化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P4703">
 <meta property="og:url" content="http://xtwnirui.github.io/2019/10/15/P4703/index.html">
 <meta property="og:site_name" content="小跳蛙 的博客">
-<meta property="og:description" content="P4703偷上网（题解）Link.点我 PS.随机大法好用我做这道题，刚开始忘了可能有无解情况，$\texttt{T}$了$\texttt{4}$个点，说明无解的就四个点然后，又过了一段时间，终于把代码构对了后，发现随机种子也很重要。刚开始，我用$\texttt{time(0)}$来当随机种子，$\texttt{Wa}$了一个点。后来用其他的一些随机种子，结果都$\texttt{Wa}$了那一个点">
+<meta property="og:description" content="这里有一篇题解。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-15T03:17:37.686Z">
+<meta property="og:updated_time" content="2019-10-20T07:03:35.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="P4703">
-<meta name="twitter:description" content="P4703偷上网（题解）Link.点我 PS.随机大法好用我做这道题，刚开始忘了可能有无解情况，$\texttt{T}$了$\texttt{4}$个点，说明无解的就四个点然后，又过了一段时间，终于把代码构对了后，发现随机种子也很重要。刚开始，我用$\texttt{time(0)}$来当随机种子，$\texttt{Wa}$了一个点。后来用其他的一些随机种子，结果都$\texttt{Wa}$了那一个点">
+<meta name="twitter:description" content="这里有一篇题解。">
 
 
 
@@ -409,12 +409,24 @@
                 
               
 
-              <time title="创建时间：2019-10-15 10:56:07 / 修改时间：11:17:37" itemprop="dateCreated datePublished" datetime="2019-10-15T10:56:07+08:00">2019-10-15</time>
+              <time title="创建时间：2019-10-15 10:56:07" itemprop="dateCreated datePublished" datetime="2019-10-15T10:56:07+08:00">2019-10-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-20 15:03:35" itemprop="dateModified" datetime="2019-10-20T15:03:35+08:00">2019-10-20</time>
               
             
           </span>
@@ -481,7 +493,8 @@
       
 
       
-        <h1 id="P4703偷上网（题解）"><a href="#P4703偷上网（题解）" class="headerlink" title="P4703偷上网（题解）"></a>P4703偷上网（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P4703" target="_blank" rel="noopener">点我</a></p>
+        <p>这里有一篇题解。<br><a id="more"></a></p>
+<h1 id="P4703偷上网（题解）"><a href="#P4703偷上网（题解）" class="headerlink" title="P4703偷上网（题解）"></a>P4703偷上网（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P4703" target="_blank" rel="noopener">点我</a></p>
 <h2 id="PS"><a href="#PS" class="headerlink" title="PS."></a>PS.</h2><p><del>随机大法好用</del><br>我做这道题，刚开始忘了可能有无解情况，$\texttt{T}$了$\texttt{4}$个点，<del>说明无解的就四个点</del><br>然后，又过了一段时间，终于把代码构对了后，发现随机种子也很重要。<br>刚开始，我用$\texttt{time(0)}$来当随机种子，$\texttt{Wa}$了一个点。<br>后来用其他的一些随机种子，结果都$\texttt{Wa}$了那一个点。<br>一气之下，我翻了一下题解，抄了楼上的$\texttt{19260817}$作为随机种字，莫名其妙就对了。<br>我感到特别玄学</p>
 <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem."></a>Problem.</h2><p>就是给你$\texttt{n}$个圆，然后让你找出一个点，使它没被任何圆覆盖。<br>输出这个点的坐标，没有则输出$\texttt{GG}$。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution."></a>Solution.</h2><p><del>没什么好分析的</del><br>直接暴力随机这个点的坐标，然后判断这个点是否在圆内。<br>那么如何判断这个点是否在圆内呢？ <a href="https://www.luogu.org/problem/P1652" target="_blank" rel="noopener">不会的点我</a><br>具体详情请看代码。</p>
@@ -850,7 +863,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">35k</span>
+    <span title="站点总字数">36k</span>
   
 
   
@@ -859,7 +872,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">32 分钟</span>
+    <span title="站点阅读时长">33 分钟</span>
   
 </div>
 

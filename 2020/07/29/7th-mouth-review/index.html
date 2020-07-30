@@ -103,22 +103,18 @@
 
 
 
-  <meta name="description" content="这里有一篇题解。">
-<meta name="keywords" content="计算几何">
+  <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="keywords" content="总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P1863独眼兔（题解）">
-<meta property="og:url" content="http://xtwnirui.github.io/2019/10/15/P1863/index.html">
+<meta property="og:title" content="7月训练总结">
+<meta property="og:url" content="http://xtwnirui.github.io/2020/07/29/7th-mouth-review/index.html">
 <meta property="og:site_name" content="小跳蛙 的博客">
-<meta property="og:description" content="这里有一篇题解。">
+<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/65916.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/65918.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/65926.png">
-<meta property="og:updated_time" content="2019-10-20T07:14:47.571Z">
+<meta property="og:updated_time" content="2020-07-30T13:54:29.020Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="P1863独眼兔（题解）">
-<meta name="twitter:description" content="这里有一篇题解。">
-<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/pic/65916.png">
+<meta name="twitter:title" content="7月训练总结">
+<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 
 
 
@@ -127,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://xtwnirui.github.io/2019/10/15/P1863/">
+  <link rel="canonical" href="http://xtwnirui.github.io/2020/07/29/7th-mouth-review/">
 
 
 
@@ -137,7 +133,7 @@
   };
 </script>
 
-  <title>P1863独眼兔（题解） | 小跳蛙 的博客</title>
+  <title>7月训练总结 | 小跳蛙 的博客</title>
   
 
 
@@ -404,7 +400,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xtwnirui.github.io/2019/10/15/P1863/">
+    <link itemprop="mainEntityOfPage" href="http://xtwnirui.github.io/2020/07/29/7th-mouth-review/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小跳蛙">
@@ -421,7 +417,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">P1863独眼兔（题解）
+          <h1 class="post-title" itemprop="name headline">7月训练总结
 
               
             
@@ -447,7 +443,7 @@
                 
               
 
-              <time title="创建时间：2019-10-15 11:15:39" itemprop="dateCreated datePublished" datetime="2019-10-15T11:15:39+08:00">2019-10-15</time>
+              <time title="创建时间：2020-07-29 22:15:05" itemprop="dateCreated datePublished" datetime="2020-07-29T22:15:05+08:00">2020-07-29</time>
             
 
             
@@ -464,7 +460,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-20 15:14:47" itemprop="dateModified" datetime="2019-10-20T15:14:47+08:00">2019-10-20</time>
+                <time title="修改时间：2020-07-30 21:54:29" itemprop="dateModified" datetime="2020-07-30T21:54:29+08:00">2020-07-30</time>
               
             
           </span>
@@ -498,7 +494,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">10k</span>
+                <span title="本文字数">4.7k</span>
               
 
               
@@ -512,7 +508,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">9 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -531,23 +527,46 @@
       
 
       
-        <p>这里有一篇题解。<br><a id="more"></a></p>
-<h1 id="P1863独眼兔（题解）"><a href="#P1863独眼兔（题解）" class="headerlink" title="P1863独眼兔（题解）"></a>P1863独眼兔（题解）</h1><h2 id="Link"><a href="#Link" class="headerlink" title="Link."></a>Link.</h2><p><a href="https://www.luogu.org/problem/P1863" target="_blank" rel="noopener">点我]]</a></p>
-<h2 id="PS"><a href="#PS" class="headerlink" title="PS."></a>PS.</h2><p>此题是计算几何的入门好题，但是我却拖了大概两个月才把它搞定。。。<br>心情十分激动，于是来写一篇题解纪念一下QwQ。<br><strong>楼上的那一篇题解都用蒟蒻我看不懂的虚数，所以这篇题解很少用用STL的东西</strong></p>
-<h2 id="Ready"><a href="#Ready" class="headerlink" title="Ready."></a>Ready.</h2><h3 id="1-向量是什么"><a href="#1-向量是什么" class="headerlink" title="1.向量是什么"></a>1.向量是什么</h3><p><img src="https://cdn.luogu.com.cn/upload/pic/65916.png" alt="图炸了，请自行百度百科"></p>
-<h3 id="2-向量怎么表示"><a href="#2-向量怎么表示" class="headerlink" title="2.向量怎么表示"></a>2.向量怎么表示</h3><p><img src="https://cdn.luogu.com.cn/upload/pic/65918.png" alt="图炸了，请自行百度百科"></p>
-<h3 id="3-向量的产生"><a href="#3-向量的产生" class="headerlink" title="3.向量的产生"></a>3.向量的产生</h3><p>设$\texttt{A(x}_\texttt{1}\texttt{,y}_\texttt{1}\texttt{) B(x}_\texttt{2}\texttt{,y}_\texttt{2}\texttt{)}$<br>则$\overrightarrow{\texttt{AB}}=\texttt{(x}_\texttt{2}\texttt{-x}_\texttt{1}\texttt{,y}_\texttt{1}\texttt{-y}_\texttt{2}\texttt{)}$</p>
-<h3 id="4-向量的叉积"><a href="#4-向量的叉积" class="headerlink" title="4.向量的叉积"></a>4.向量的叉积</h3><p>设$\overrightarrow{\texttt{a}}\texttt{=(x}_\texttt{1}\texttt{,y}_\texttt{1}\texttt{)}\overrightarrow{\texttt{b}}\texttt{ =(x}_\texttt{2}\texttt{,y}_\texttt{2}\texttt{)}$<br>$\texttt{|}\overrightarrow{\texttt{a}}\times\overrightarrow{\texttt{b}}\texttt{|=}\sin\texttt{<a,b>}\times\texttt{|a|}\times\texttt{|b|}$<br>$\texttt{=x}_\texttt{\texttt{1}}\texttt{y}_\texttt{2}\texttt{-x}_\texttt{2}\texttt{y}_\texttt{1}$<br>$\boxed{\color{white}\colorbox{red}{注意：向量的叉积是一个向量，但是由于它飞出了平面，我们只考虑它的模长。}}$<br>由于$\texttt{|}\overrightarrow{\texttt{a}}\times\overrightarrow{\texttt{b}}\texttt{|=}\sin\texttt{<a,b>}\times\texttt{|a|}\times\texttt{|b|}$，所以向量的叉积的绝对值可以表示两个向量所夹的三角形面积，向量的叉积的正负可以表示两个向量的旋转的方向。</a,b></a,b></p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example."></a>Example.</h2><p><img src="https://cdn.luogu.com.cn/upload/pic/65926.png" alt="图挂了，这里略"></p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution."></a>Solution.</h2><p>总体思路是：</p>
-<ol>
-<li>首先应该先找出最下面的点。</li>
-<li>然后一个一个的去找点，找到最优的点。</li>
-<li>最后输出答案。<br>但是如何去找到最优的点呢？</li>
-<li>首先如果这个点从上一个点来需要向右旋转，那肯定不可能，这里需要用向量叉积的正负性。</li>
-<li>然后用贪心的思想，尽量找到旋转角度最小的点，这里需要用向量叉积的模长。<h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding."></a>Coding.</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=<span class="number">1000000005</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">vec</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,y;</span><br><span class="line">	<span class="keyword">inline</span> vec <span class="keyword">operator</span>+(vec &amp;b) <span class="keyword">const</span> &#123;<span class="keyword">return</span> (vec)&#123;x+b.x,y+b.y&#125;;&#125;		<span class="comment">//向量加</span></span><br><span class="line">	<span class="keyword">inline</span> vec <span class="keyword">operator</span>-(vec &amp;b) <span class="keyword">const</span> &#123;<span class="keyword">return</span> (vec)&#123;x-b.x,y-b.y&#125;;&#125;		<span class="comment">//向量减</span></span><br><span class="line">&#125;;			<span class="comment">//向量结构体</span></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="keyword">operator</span>*(vec a,vec b) &#123;<span class="keyword">return</span> a.x*b.y-a.y*b.x;&#125;	<span class="comment">//向量的叉积</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,y;</span><br><span class="line">	<span class="keyword">inline</span> vec <span class="keyword">operator</span>-(point &amp;b) <span class="keyword">const</span> &#123;<span class="keyword">return</span> (vec)&#123;x-b.x,y-b.y&#125;;&#125;	<span class="comment">//向量产生</span></span><br><span class="line">	<span class="keyword">inline</span> <span class="keyword">double</span> <span class="keyword">operator</span>/(point &amp;b) <span class="keyword">const</span> &#123;<span class="keyword">return</span> <span class="built_in">sqrt</span>((x-b.x)*(x-b.y)+(y-b.y)*(y-b.y));&#125;	<span class="comment">//两点之间的距离</span></span><br><span class="line">&#125;a[<span class="number">1005</span>];<span class="comment">//平面上的一个点</span></span><br><span class="line"><span class="keyword">int</span> n,w=<span class="number">0</span>,vis[<span class="number">1005</span>];	<span class="comment">//vis表示此处的萝卜是否被吃掉了</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;v;			<span class="comment">//v表示答案数组</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n),a[<span class="number">0</span>].x=a[<span class="number">0</span>].y=INF;		<span class="comment">//第一个点设置为无穷大，是为了方便下一行处理</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a[i].x,&amp;a[i].y),w=(a[i].y&lt;a[w].y)?i:w;</span><br><span class="line">	<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">	vis[w]=<span class="number">1</span>,v.push_back(w);	<span class="comment">//最下面的点入队</span></span><br><span class="line">	point lst1=(point)&#123;<span class="number">0</span>,a[w].y&#125;,lst2=a[w];	<span class="comment">//lst1表示上一个点，lst2表示前面的第二个点</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,mw=<span class="number">-1</span>;i&lt;n;i++,mw=<span class="number">-1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">			<span class="keyword">if</span>(!vis[j]&amp;&amp;(lst2-lst1)*(a[j]-lst1)&gt;=<span class="number">0</span>)		<span class="comment">//这个点没有来过且不需要享有旋转</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(mw==<span class="number">-1</span>) &#123;mw=j;<span class="keyword">continue</span>;&#125;</span><br><span class="line">				<span class="keyword">int</span> t=(a[mw]-lst2)*(a[j]-lst2);		<span class="comment">//用贪心的思想，要尽量的找到与上一个面积最小</span></span><br><span class="line">				<span class="keyword">if</span>(t&lt;<span class="number">0</span>||(t==<span class="number">0</span>&amp;&amp;(a[j]/lst2)&lt;(a[mw]/lst2))) mw=j;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">if</span>(mw==<span class="number">-1</span>) <span class="keyword">break</span>;</span><br><span class="line">		v.push_back(mw),vis[mw]=<span class="number">1</span>,lst1=lst2,lst2=a[mw];		<span class="comment">//加入答案序列，标位已访问</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d "</span>,n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="keyword">int</span>)v.size();i++) <span class="built_in">printf</span>(<span class="string">"%d "</span>,v[i]);	<span class="comment">//输出</span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">puts</span>(<span class="string">""</span>),<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+        <script src="/js/crypto-js.js"></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script>
+<div id="enc_content" style="display:none">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</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
       
     </div>
 
@@ -570,7 +589,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/计算几何/" rel="tag"><i class="fa fa-tag"></i> 计算几何</a>
+            <a href="/tags/总结/" rel="tag"><i class="fa fa-tag"></i> 总结</a>
           
         </div>
       
@@ -583,8 +602,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/15/P4906/" rel="next" title="P4906小奔关闹钟（题解）">
-                <i class="fa fa-chevron-left"></i> P4906小奔关闹钟（题解）
+              <a href="/2019/10/15/P4092/" rel="next" title="P4092[HEOI2016/TJOI2016]树（题解）">
+                <i class="fa fa-chevron-left"></i> P4092[HEOI2016/TJOI2016]树（题解）
               </a>
             
           </div>
@@ -592,10 +611,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/15/P1485/" rel="prev" title="P1485火枪打怪（题解）">
-                P1485火枪打怪（题解） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -640,17 +655,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -820,23 +826,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P1863独眼兔（题解）"><span class="nav-number">1.</span> <span class="nav-text">P1863独眼兔（题解）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Link"><span class="nav-number">1.1.</span> <span class="nav-text">Link.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PS"><span class="nav-number">1.2.</span> <span class="nav-text">PS.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ready"><span class="nav-number">1.3.</span> <span class="nav-text">Ready.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-向量是什么"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.向量是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-向量怎么表示"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.向量怎么表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-向量的产生"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.向量的产生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-向量的叉积"><span class="nav-number">1.3.4.</span> <span class="nav-text">4.向量的叉积</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.4.</span> <span class="nav-text">Example.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.5.</span> <span class="nav-text">Solution.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coding"><span class="nav-number">1.6.</span> <span class="nav-text">Coding.</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
